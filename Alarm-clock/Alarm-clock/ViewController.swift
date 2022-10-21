@@ -18,33 +18,23 @@ class ViewController: UIViewController {
     @IBOutlet private var switchOutlet: UISwitch!
     @IBOutlet private var clearOutlet: UIButton!
     
-
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        setValueForTextField()
         addDoneButtonTo(textFieldOutlet)
-        
     }
 
     @IBAction func sliderAction(_ sender: UISlider) {
-        textFieldOutlet.text = String(format: "%.2f", sliderOutlet.value)
+        textFieldOutlet.text = string(from: sender)
         progressViewOutlet.progress = sliderOutlet.value
     }
     
-    
-    @IBAction func datePickerAction(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .medium
-        
-//        let dateValue = dateFormatter.string(from: dateFormatter)
-//        labelTimeOutlet.text = dateValue
-    }
-    
-    
-    @IBAction func setThisTimeActionButton(_ sender: UIButton) {
-        
+    @IBAction func setThisTimeActionButton() {
+        getDateFromPicker()
     }
     
     
@@ -52,10 +42,11 @@ class ViewController: UIViewController {
         if sender.isOn {
             clearOutlet.isEnabled = true
             setThisTimeOutlet.isEnabled = true
+            labelTimeOutlet.isEnabled = true
         } else {
             clearOutlet.isEnabled = false
             setThisTimeOutlet.isEnabled = false
-            labelTimeOutlet.text = ""
+            labelTimeOutlet.text = "00 : 00"
         }
     }
     
@@ -75,6 +66,20 @@ class ViewController: UIViewController {
         clearOutlet.layer.cornerRadius = 15
     }
     
+    private func setValueForTextField() {
+        textFieldOutlet.text = string(from: sliderOutlet)
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        return String(format: "%.2f", slider.value)
+    }
+    
+    private func getDateFromPicker() {
+        datePicker.datePickerMode = .time
+        let formater = DateFormatter()
+        formater.dateFormat = "HH : mm"
+        labelTimeOutlet.text = formater.string(from: datePicker.date)
+    }
 }
 
 // MARK: - ViewController + UITextFieldDelegate
