@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="UPx-M1-vm7">
-                                <rect key="frame" x="20" y="64" width="374" height="499"/>
+                                <rect key="frame" x="20" y="64" width="374" height="581"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm Clock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-ve-uDJ">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
@@ -27,12 +27,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0y-fa-XUn">
+                                        <rect key="frame" x="0.0" y="81" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Esr-oP-pR6"/>
+                                            <constraint firstAttribute="height" constant="1" id="zt9-Hi-Qq4"/>
+                                        </constraints>
+                                    </view>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uag-OU-aOh">
-                                        <rect key="frame" x="0.0" y="81" width="374" height="4"/>
+                                        <rect key="frame" x="0.0" y="122" width="374" height="4"/>
                                         <color key="progressTintColor" systemColor="systemPinkColor"/>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wvt-n7-Szf">
-                                        <rect key="frame" x="0.0" y="125" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="166" width="374" height="34"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fwX-cm-dZC">
                                                 <rect key="frame" x="-2" y="0.0" width="324" height="35"/>
@@ -47,12 +55,23 @@
                                                     <constraint firstAttribute="width" constant="46" id="jE6-ab-4pS"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="06o-Xk-YpT"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GwO-nZ-r4b">
+                                        <rect key="frame" x="0.0" y="240" width="374" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="UUv-J4-2rC"/>
+                                            <constraint firstAttribute="height" constant="1" id="Z2M-Is-wCc"/>
+                                        </constraints>
+                                    </view>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfD-Y7-iRy">
-                                        <rect key="frame" x="0.0" y="199" width="374" height="216"/>
+                                        <rect key="frame" x="0.0" y="281" width="374" height="216"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -63,7 +82,7 @@
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNO-3m-u53">
-                                        <rect key="frame" x="0.0" y="455" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="537" width="374" height="44"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MNO-3m-u53" secondAttribute="height" multiplier="17:2" id="maC-5n-adL"/>
@@ -74,7 +93,7 @@
                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="setThisTimeActionButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="mTQ-q4-KDQ"/>
+                                            <action selector="setThisTimeActionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vi8-5k-X8l"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -86,7 +105,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-VD-Lnu">
                                 <rect key="frame" x="20" y="755.5" width="374" height="31.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-8r-twW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-8r-twW">
                                         <rect key="frame" x="0.0" y="0.0" width="213" height="31.5"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -147,7 +166,7 @@
                         <outlet property="setThisTimeOutlet" destination="MNO-3m-u53" id="atl-7W-xlz"/>
                         <outlet property="sliderOutlet" destination="fwX-cm-dZC" id="73f-vI-FNl"/>
                         <outlet property="switchOutlet" destination="JuY-eO-3sg" id="seU-aK-J0M"/>
-                        <outlet property="textFieldOutlet" destination="jbR-Y4-mZG" id="VrG-lS-LcM"/>
+                        <outlet property="textFieldWeak" destination="jbR-Y4-mZG" id="te9-Pq-oYq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
