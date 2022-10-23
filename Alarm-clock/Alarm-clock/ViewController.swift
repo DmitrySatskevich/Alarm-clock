@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         labelTimeOutlet.text = formatter.string(from: datePickerOutlet.date)
     }
     
-    
     @IBAction func switchActionPressed(_ sender: UISwitch) {
         if sender.isOn {
             clearOutlet.isEnabled = true
@@ -52,15 +51,15 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func clearActionButton(_ sender: UIButton) {
-        labelTimeOutlet.text = ""
+        labelTimeOutlet.text = "00:00"
     }
     
     @IBAction func textFieldAction(_ sender: UITextField) {
         guard let text = sender.text else { return }
 
         if let currentValue = Float(text) {
+            if currentValue > 1 { showAlert(title: "Incorrect value", message: "Enter value from 0 to 1") }
             switch sender.tag {
             case 0:
                 sliderOutlet.value = currentValue
