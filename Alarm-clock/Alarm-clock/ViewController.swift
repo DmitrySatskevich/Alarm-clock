@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet private var progressViewOutlet: UIProgressView!
     @IBOutlet private var sliderOutlet: UISlider!
